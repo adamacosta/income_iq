@@ -1,0 +1,93 @@
+R00001.00    [CASEID]                                       Survey Year: 1979
+  PRIMARY VARIABLE
+
+ 
+             IDENTIFICATION CODE
+ 
+ORIGINAL QUESTION NAME: CASEID
+ 
+NOTE: THIS NUMBER WAS ASSIGNED ACCORDING TO THE RECORD NUMBER OF EACH RESPONDENT
+ON THE TAPE. THE FIRST RESPONDENT WAS ASSIGNED ID#1, THE SECOND WAS ASSIGNED 
+ID#2, ETC.
+ 
+ACTUAL NUMBER
+ 
+UNIVERSE: All
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>   12686   VALID SKIP(-4)       0     NON-INTERVIEW(-5)       0
+ 
+Min:              1        Max:          12686        Mean:              6343.5
+ 
+Lead In: None.
+Default Next Question: R00001.49
+--------------------------------------------------------------------------------
+R06183.01    [AFQT-3]                                       Survey Year: 1981
+  PRIMARY VARIABLE
+
+ 
+             PROFILES, ARMED FORCES QUALIFICATION TEST (AFQT) PERCENTILE SCORE -
+             REVISED 2006
+ 
+ORIGINAL QUESTION NAME: *CREATED
+ 
+SEE ATTACHMENT 106 ADDENDUM FOR DEFINITIONS
+NOTE: (SEE R( 6182.))  3 IMPLIED DECIMAL PLACES
+ 
+ACTUAL PERCENTAGE
+ 
+UNIVERSE: All
+ 
+Refusal(-1)            0
+Don't Know(-2)         0
+TOTAL =========>   11914   VALID SKIP(-4)     281     NON-INTERVIEW(-5)     491
+ 
+Min:              0        Max:         100000        Mean:            42395.61
+ 
+Lead In: None.
+Default Next Question: R06184.10
+--------------------------------------------------------------------------------
+T41123.00    [TNFI_TRUNC]                                   Survey Year: 2012
+  PRIMARY VARIABLE
+
+ 
+             TOTAL NET FAMILY INCOME IN PAST CALENDAR YEAR *KEY* (TRUNCATED)
+ 
+COMMENT: Total Net Family Income in 2011
+NOTE: FOR VARIABLE CREATION, SEE APPENDIX 2: TOTAL NET FAMILY INCOME TRUNCATED 
+VALUES ARE EQUAL TO THE AVERAGE VALUE OF THE TOP 2% OF RESPONDENTS WHO ARE U.S. 
+RESIDENTS.  IF THE NUMBER OF TRUNCATED VALUES EXCEEDS THAT WHICH WOULD HAVE BEEN
+TRUNCATED AT THE TRADITIONAL TRUNCATION LEVEL OF 100,001 FOR THIS ITEM, VALUES 
+OVER THAT TRADITIONAL TRUNCATION LEVEL ARE AVERAGED.  OVERSEAS RESPONDENTS WHOSE
+DOLLAR INCOME COULD NOT BE DETERMINED ARE CODED -3.
+ 
+ACTUAL DOLLARS
+ 
+     200           0
+      35           1 TO 999
+      43        1000 TO 1999
+      81        2000 TO 2999
+      30        3000 TO 3999
+      28        4000 TO 4999
+      34        5000 TO 5999
+      23        6000 TO 6999
+      42        7000 TO 7999
+      81        8000 TO 8999
+      77        9000 TO 9999
+     353       10000 TO 14999
+     282       15000 TO 19999
+     301       20000 TO 24999
+    1291       25000 TO 49999
+    3406       50000 TO 99999999: 50000+
+  -------
+    6307
+ 
+Refusal(-1)          215
+Don't Know(-2)       779
+TOTAL =========>    7301   VALID SKIP(-4)       0     NON-INTERVIEW(-5)    5385
+ 
+Min:              0        Max:         497763        Mean:            75695.05
+ 
+Lead In: T41122.00[Default]
+Default Next Question: T41125.00
