@@ -19,7 +19,7 @@ g1        <- ggplot(data=df, aes(iq, income)) +
              stat_smooth(method="lm", lwd=1) +
              scale_y_continuous(labels=comma) +
              theme_few()
-png(filename="income_iq.png", height=600, width=480)
+png(filename="income_iq.png", width=600, height=480)
 g1
 dev.off()
 
@@ -28,7 +28,7 @@ means     <- summarise(group_by(df, dec), mean_income=mean(income))
 g2        <- ggplot(means, aes(dec, mean_income)) +
              geom_bar(stat="identity", fill="slategrey") +
              theme_few()
-png(filename="mean_income.png", height=600, width=480)
+png(filename="mean_income.png", width=600, height=480)
 g2
 dev.off()
 
@@ -38,6 +38,6 @@ g3        <- ggplot(sds, aes(dec, sd_income)) +
              geom_bar(stat="identity", fill="slategrey") +
              scale_y_continuous(labels=comma) +
              theme_few()
-png(filename="sd_income.png", height=600, width=480)
+png(filename="sd_income.png", width=600, height=480)
 g3
 dev.off()
