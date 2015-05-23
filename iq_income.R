@@ -1,3 +1,5 @@
+#! /usr/bin/Rscript
+
 library(dplyr)
 library(ggplot2)
 library(ggthemes)
@@ -17,12 +19,25 @@ g1        <- ggplot(data=df, aes(iq, income)) +
              stat_smooth(method="lm", lwd=1) +
              scale_y_continuous(labels=comma) +
              theme_few()
+png(filename="income_iq.png", height=600, width=480)
 g1
+dev.off()
 
-grouped   <- group_by(df, dec)
-means     <- summarise(grouped, mean_income=mean(income))
+means     <- summarise(group_by(df, dec), mean_income=mean(income))
 
 g2        <- ggplot(means, aes(dec, mean_income)) +
              geom_bar(stat="identity", fill="slategrey") +
              theme_few()
+png(filename="mean_income.png", height=600, width=400)
 g2
+dev.off()
+
+sds       <- summarise(group_by(df, dec), sd_income=sd(income))
+
+g3        <- ggplot(sds, aes(dec, sd_income)) +
+             geom_bar(stat="identity", fill="slategrey") +
+             scale_y_continuous(labels=comma) +
+             theme_few()
+png(filename="sd_income.png", height=600, width=400)
+g3
+dev.off()
