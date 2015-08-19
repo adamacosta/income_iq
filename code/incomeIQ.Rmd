@@ -1,0 +1,63 @@
+---
+title: Relationship between Income and IQ
+author: Adam Acosta
+output: html_document
+---
+
+```{r, echo = FALSE}
+library(knitr)
+opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+```{r}
+library(dplyr)
+library(data.table)
+library(ggvis)
+
+nls_dt <- fread("../data/default.csv") %>%
+  tbl_dt() %>%
+  filter(R0618301 > 0 & T4112300 > 0) %>%
+  mutate(iq=((R0618301 - mean(R0618301)) / sd(R0618301)) * 
+            15 + 100) %>%
+  mutate(dec=cut(iq, unique(quantile(iq, seq(0, 1, 0.1))),
+                include.lowest=TRUE)) %>%
+  select(-R0618301) %>%
+  setnames(c("id", "income", "iq", "decile"))
+
+nls_dt %>%
+  select(iq, income) %>%
+  summary() %>%
+  kable()
+```
+
+```{r}
+nls_dt %>%
+  ggvis(~iq, ~income) %>%
+  layer_points(fill := 'steelblue', 
+               opacity := 0.4, 
+               size := 10) %>%
+  layer_model_predictions(model = 'lm', 
+                          stroke := 'red', 
+                          se = FALSE) %>%
+  add_axis('y', title_offset = 80)
+```
+
+```{r}
+nls_dt %>% 
+  group_by(decile) %>%
+  summarise(mean_income = mean(income)) %>%
+  ggvis(~decile, ~mean_income) %>%
+  layer_bars(fill := 'steelblue', 
+             opacity := 0.8) %>%
+  add_axis('y', title_offset = 80)
+```
+
+```{r}
+nls_dt %>%
+  group_by(decile) %>%
+  summarise(stdev_income = sd(income)) %>%
+  ggvis(~decile, ~stdev_income) %>%
+  layer_bars(fill := 'steelblue', 
+             opacity := 0.8) %>%
+  add_axis('y', title_offset = 80)
+```
